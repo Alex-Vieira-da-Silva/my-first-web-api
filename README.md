@@ -37,3 +37,30 @@ API REST desenvolvida com **Spring Boot**, utilizando **autenticação básica**
 ---
 
 ## 🏗️ Arquitetura
+
+src/main/java/com.calltech.my_first_web_api/ │ ├── controller/ │   └── UsuarioController.java │ ├── model/ │   └── Usuario.java │ ├── repository/ │   └── IUsuarioRepository.java │ ├── security/ │   ├── SecurityDatabaseService.java │   └── WebSecurityConfig.java │ └── init/ └── StartApplication.jav
+
+
+---
+
+## 🔐 Autenticação
+
+A API utiliza **Basic Authentication**.
+
+As roles disponíveis são:
+
+- `MANAGERS`
+- `USERS`
+
+A autorização é controlada via:
+
+- `@PreAuthorize`
+- `WebSecurityConfig`
+
+---
+
+## 🔑 Credenciais dos Usuários
+
+Criados automaticamente no `StartApplication` ao iniciar o projeto.
+
+### 👑 ADMIN (Acesso total)
