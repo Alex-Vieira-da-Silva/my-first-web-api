@@ -1,6 +1,8 @@
 # My First Web API – Spring Boot
 
-API REST simples usando Spring Boot, Spring Security, JPA e banco H2.
+Este projeto é uma API REST criada para demonstrar, de forma simples e prática, como construir uma aplicação segura usando Spring Boot.  
+Ela implementa autenticação básica, controle de acesso por papéis (roles), persistência de dados com JPA e um banco de dados em memória (H2).  
+O objetivo é servir como base de estudo para quem está começando com APIs Java modernas, mostrando como estruturar o código, proteger rotas e manipular dados de usuários.
 
 ## Tecnologias
 - Java 21
@@ -13,15 +15,23 @@ API REST simples usando Spring Boot, Spring Security, JPA e banco H2.
 ## Credenciais dos usuários
 Criados automaticamente ao iniciar o projeto.
 
-### ADMIN
+### ADMIN (acesso total)
 - username: admin
 - password: master123
 - role: MANAGERS
 
-### USER
+### USER (acesso limitado)
 - username: user
 - password: user123
 - role: USERS
+
+## O que a API faz
+- Permite listar usuários cadastrados
+- Permite buscar um usuário pelo username
+- Permite criar, atualizar e excluir usuários (somente MANAGERS)
+- Protege rotas com autenticação e autorização
+- Armazena dados no banco H2 usando JPA
+- Inicializa o banco com dois usuários padrão
 
 ## Endpoints principais
 
@@ -50,6 +60,3 @@ Configuração:
 - JDBC URL: jdbc:h2:~/test
 - User: sa
 - Password: (vazio)
-
-## Como executar
-Via Maven:
