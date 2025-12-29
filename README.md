@@ -1,66 +1,55 @@
-# 📘 My First Web API – Spring Boot + Security + JPA + H2
+# My First Web API – Spring Boot
 
-![Java](https://img.shields.io/badge/Java-21-blue)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen)
-![Security](https://img.shields.io/badge/Security-Basic%20Auth-orange)
-![Database](https://img.shields.io/badge/Database-H2-yellow)
-![License](https://img.shields.io/badge/License-MIT-lightgrey)
+API REST simples usando Spring Boot, Spring Security, JPA e banco H2.
 
-API REST desenvolvida com **Spring Boot**, utilizando **autenticação básica**, **controle de acesso por roles**, **persistência com JPA** e **banco H2**.
-
----
-
-## 📌 Índice
-
-- [Tecnologias](#-tecnologias)
-- [Arquitetura](#-arquitetura)
-- [Autenticação](#-autenticação)
-- [Credenciais dos Usuários](#-credenciais-dos-usuários)
-- [Endpoints](#-endpoints)
-- [Configuração do H2](#-configuração-do-h2)
-- [Como rodar o projeto](#-como-rodar-o-projeto)
-- [Diagramas](#-diagramas)
-- [Licença](#-licença)
-
----
-
-## 🚀 Tecnologias
-
-- **Java 21**
-- Spring Boot 3.x
+## Tecnologias
+- Java 21
+- Spring Boot 3
 - Spring Web
 - Spring Security (Basic Auth)
 - Spring Data JPA
 - H2 Database
-- Maven
 
----
+## Credenciais dos usuários
+Criados automaticamente ao iniciar o projeto.
 
-## 🏗️ Arquitetura
+### ADMIN
+- username: admin
+- password: master123
+- role: MANAGERS
 
-src/main/java/com.calltech.my_first_web_api/ │ ├── controller/ │   └── UsuarioController.java │ ├── model/ │   └── Usuario.java │ ├── repository/ │   └── IUsuarioRepository.java │ ├── security/ │   ├── SecurityDatabaseService.java │   └── WebSecurityConfig.java │ └── init/ └── StartApplication.jav
+### USER
+- username: user
+- password: user123
+- role: USERS
 
+## Endpoints principais
 
----
+### Listar usuários
+GET /users
 
-## 🔐 Autenticação
+### Buscar usuário por username
+GET /users/{username}
 
-A API utiliza **Basic Authentication**.
+### Criar usuário
+POST /users  
+Acesso: MANAGERS
 
-As roles disponíveis são:
+### Atualizar usuário
+PUT /users/{id}  
+Acesso: MANAGERS
 
-- `MANAGERS`
-- `USERS`
+### Excluir usuário
+DELETE /users/{id}  
+Acesso: MANAGERS
 
-A autorização é controlada via:
+## Acessar o H2
+URL: http://localhost:8080/h2-console
 
-- `@PreAuthorize`
-- `WebSecurityConfig`
+Configuração:
+- JDBC URL: jdbc:h2:~/test
+- User: sa
+- Password: (vazio)
 
----
-
-## 🔑 Credenciais dos Usuários
-
-Criados automaticamente no `StartApplication` ao iniciar o projeto.
-
-### 👑 ADMIN (Acesso total)
+## Como executar
+Via Maven:
